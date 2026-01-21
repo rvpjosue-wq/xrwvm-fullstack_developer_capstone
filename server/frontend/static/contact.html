@@ -12,11 +12,15 @@
 
     <style>
         .hero {
-            background: linear-gradient(to right, #00bcd4, #0097a7);
-            color: white;
-            padding: 60px 20px;
-            text-align: center;
-        }
+    background:
+        linear-gradient(to right, rgba(0,188,212,0.85), rgba(0,151,167,0.85)),
+        url("{% static 'cars.jpeg' %}");
+    background-size: cover;
+    background-position: center;
+    color: white;
+    padding: 80px 20px;
+    text-align: center;
+}
 
         .contact-card {
             max-width: 900px;
@@ -78,7 +82,9 @@
 <div class="hero">
     <h1>Contact Our Dealership</h1>
     <p>We’re here to help you find your next car</p>
+    <img src="{% static 'cars.jpeg' %}" alt="Contact Us">
 </div>
+
 
 <!-- Contact Card -->
 <div class="contact-card row g-0">
