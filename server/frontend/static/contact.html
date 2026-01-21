@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us</title>
+
+    {% load static %}
+
+    <link rel="stylesheet" href="{% static 'bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+
+    <style>
+        .hero {
+            background: linear-gradient(to right, #00bcd4, #0097a7);
+            color: white;
+            padding: 60px 20px;
+            text-align: center;
+        }
+
+        .contact-card {
+            max-width: 900px;
+            margin: -40px auto 40px;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+
+        .contact-info {
+            background: #f7f7f7;
+            padding: 30px;
+        }
+
+        .contact-info h4 {
+            margin-bottom: 20px;
+        }
+
+        .contact-info p {
+            margin: 8px 0;
+            font-size: 16px;
+        }
+
+        .contact-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+    </style>
+</head>
+
+<body>
+
+<nav class="navbar navbar-expand-lg navbar-light" style="background-color:darkturquoise; height: 1in;">
+    <div class="container-fluid">
+        <h2 style="padding-right: 5%;">Dealerships</h2>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarText">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link" style="font-size: larger;" href="/">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" style="font-size: larger;" href="/about">About Us</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" style="font-size: larger;" href="/contact">Contact Us</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<!-- Hero Section -->
+<div class="hero">
+    <h1>Contact Our Dealership</h1>
+    <p>We’re here to help you find your next car</p>
+</div>
+
+<!-- Contact Card -->
+<div class="contact-card row g-0">
+    <div class="col-md-6 contact-image">
+        <img src="{% static 'contactus.png' %}" alt="Contact Us">
+    </div>
+
+    <div class="col-md-6 contact-info">
+        <h4>Get in Touch</h4>
+
+        <p><strong>📍 Address:</strong><br>123 Car Street, Tech City, TC 12345</p>
+
+        <p><strong>📞 Phone:</strong><br>+1 (555) 123-4567</p>
+
+        <p><strong>📧 Email:</strong><br>support@bestcars.com</p>
+
+        <p><strong>🕒 Hours:</strong><br>Mon–Fri: 9am – 6pm</p>
+
+        <hr>
+
+        <h5>Send Us a Message</h5>
+
+        <form method="POST">
+            {% csrf_token %}
+            <div class="mb-3">
+                <label class="form-label">Your Name</label>
+                <input type="text" class="form-control" name="name" required>
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label">Your Email</label>
+                <input type="email" class="form-control" name="email" required>
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label">Message</label>
+                <textarea class="form-control" name="message" rows="4" required></textarea>
+            </div>
+
+            <button class="btn btn-info w-100" type="submit">Send Message</button>
+        </form>
+    </div>
+</div>
+
+<script src="{% static 'bootstrap.bundle.min.js' %}"></script>
+
+</body>
+</html>
